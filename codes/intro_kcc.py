@@ -21,6 +21,7 @@ def show_page(name):
 
     new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "대표사진크롭1", extension = 'jpg')
     new_imgs = new_imgs[:1774]
+    st.title(f'My first app {st.__version__}')
 
     #opening the image
     images = []
