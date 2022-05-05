@@ -18,6 +18,10 @@ import intro_kcc as intro
 
 st.sidebar.write(" ")
 
+path = os.getcwd()
+
+print(path)
+
 pages = {
         "사용 방법": intro,
         "도자기": C,
