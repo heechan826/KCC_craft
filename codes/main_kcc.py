@@ -11,7 +11,7 @@ import intro_kcc as intro
 import subprocess
 import sys
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", 'openpyxl'])
+#subprocess.check_call([sys.executable, "-m", "pip", "install", 'openpyxl'])
 
 #! pip install xlrd
 
