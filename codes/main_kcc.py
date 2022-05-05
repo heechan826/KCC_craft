@@ -20,7 +20,7 @@ st.sidebar.write(" ")
 
 path = os.getcwd()
 
-print(path)
+#print(path)
 
 pages = {
         "사용 방법": intro,

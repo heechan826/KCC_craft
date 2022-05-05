@@ -232,14 +232,14 @@ def show_page(type):
         # Save and read graph as HTML file (on Streamlit Sharing)
         try:
             path = os.getcwd()
-            path = path + '\\..\\tmp'
+            path = path + '\\tmp'
             craft_net.save_graph(f'{path}/pyvis_graph.html')
             HtmlFile = open(f'{path}/pyvis_graph.html', 'r', encoding='utf-8')
 
         # Save and read graph as HTML file (locally)
         except:
             path = os.getcwd()
-            path = path + '\\..\\tmp'
+            path = path + '\\tmp'
             print(path)
             craft_net.save_graph(f'{path}\pyvis_graph.html')
             HtmlFile = open(f'{path}\pyvis_graph.html', 'r', encoding='utf-8')
