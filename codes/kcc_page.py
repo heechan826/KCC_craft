@@ -147,6 +147,7 @@ def show_page(type):
                         )
 
         new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "대표사진크롭1", extension = 'jpg')
+        st.text(id_img_dict.keys()))
 
         # 선택한 제품에 대한 feature 노드들 생성
         for index, e in enumerate(edge_data):
