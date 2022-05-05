@@ -21,7 +21,7 @@ dict = {
 def show_page(type):
 
     # Read dataset (CSV)
-    craft = pd.read_excel("datas.xlsx", sheet_name=dict[type])
+    craft = pd.read_excel("/data/datas.xlsx", sheet_name=dict[type])
 
     craft_tmp = craft.rename(columns=lambda x: x + ': ')
     craft_tmp = craft_tmp.rename({"ID: ": "ID"}, axis=1)
