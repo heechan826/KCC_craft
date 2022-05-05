@@ -135,6 +135,7 @@ def show_page(type):
             targets_list.append(target)
             edge_data_list.append(zip(source, target))
 
+        print('testeeeeeeeeeeeeeeeeeee')
         #print('[edge_data_list]')
         #print(edge_data_list)
 
