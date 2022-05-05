@@ -11,7 +11,7 @@ import intro_kcc as intro
 
 #Sidebar settings
 
-logo, name = st.sidebar.columns(2)
+#logo, name = st.sidebar.columns(2)
 #with logo:
 #    image = 'hedoes_logo.png'
 #    st.image(image, use_column_width=True)
