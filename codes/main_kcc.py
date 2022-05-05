@@ -8,6 +8,12 @@ import os
 import utils
 import kcc_page as C
 import intro_kcc as intro
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", 'xlrd'])
+
+#! pip install xlrd
 
 #Sidebar settings
 
