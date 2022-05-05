@@ -149,6 +149,10 @@ def show_page(type):
         new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "대표사진크롭1", extension = 'jpg')
         st.text(id_img_dict.keys())
         st.text(id_img_dict['C00002'])
+        print('id_img_dict.keys()')
+        print(id_img_dict.keys())
+        print('id_img_dict[C00002]')
+        print(id_img_dict['C00002'])
 
         # 선택한 제품에 대한 feature 노드들 생성
         for index, e in enumerate(edge_data):
@@ -156,7 +160,6 @@ def show_page(type):
             src = e[0]
             dst = e[1]
             #print(id_img_dict[src])
-
             craft_net.add_node(src, src, size = 20, title = '', shape='circularImage', image = id_img_dict[src])
 
             # To get rid of '기타'
