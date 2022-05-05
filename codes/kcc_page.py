@@ -146,7 +146,7 @@ def show_page(type):
                         font_color='white'
                         )
 
-        new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "대표사진크롭1", extension = 'jpg')
+        new_imgs, id_img_dict = utils.resize_imgs(new_size = 250, dir = "대표사진크롭1", extension = 'jpg')
         st.text(id_img_dict.keys())
         st.text(id_img_dict['C00002'])
         print('id_img_dict.keys()')
