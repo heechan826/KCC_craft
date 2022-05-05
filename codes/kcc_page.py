@@ -67,14 +67,14 @@ def show_page(type):
     for feature in features:
         edges = craft[['ID',feature]]
         edges_list.append(edges)
-    print(edges_list[0])
+    #print(edges_list[0])
 
     total_edge = pd.DataFrame()
     
     for i, edges in enumerate(edges_list):
         total_edge = pd.concat([total_edge, edges.rename(columns = {features[i]: '특징'})], ignore_index = True)
-    print('[total_edge]')
-    print(total_edge)
+    #print('[total_edge]')
+    #print(total_edge)
 
     # Set info message on initial site load
     if len(options) == 0:
@@ -82,14 +82,14 @@ def show_page(type):
 
     # Create network graph when user selects >= 1 item
     else:
-        print('[options]')
-        print(options)
+        #print('[options]')
+        #print(options)
         df_select = total_edge.loc[total_edge['ID'].isin(options) | \
                                     total_edge['특징'].isin(options)]
         df_select = df_select.reset_index(drop=True)
 
-        print('df_select[특징]')
-        print(df_select['특징'])
+        #print('df_select[특징]')
+        #print(df_select['특징'])
 
         sources_crf = df_select['ID']
         targets_crf = df_select['특징']
@@ -97,7 +97,7 @@ def show_page(type):
         
         #G = nx.from_pandas_edgelist(df_select, 'ID', '특징')
 
-        print('df_select[특징][0]')
+        #print('df_select[특징][0]')
         #print(df_select['특징'][0])
 
         sources_list = []
@@ -112,10 +112,10 @@ def show_page(type):
 
             tmp = []
             tmp.append(feature)
-            print('[tmp]')
-            print(tmp)
-            print('[feature]')
-            print(feature)
+            #print('[tmp]')
+            #print(tmp)
+            #print('[feature]')
+            #print(feature)
 
             df_select2 = total_edge.loc[total_edge['ID'].isin(tmp) | \
                                 total_edge['특징'].isin(tmp)]
@@ -135,8 +135,8 @@ def show_page(type):
             targets_list.append(target)
             edge_data_list.append(zip(source, target))
 
-        print('[edge_data_list]')
-        print(edge_data_list)
+        #print('[edge_data_list]')
+        #print(edge_data_list)
 
         # Initiate PyVis network object
         craft_net = Network(
