@@ -146,7 +146,7 @@ def show_page(type):
                         font_color='white'
                         )
 
-        new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "C:/Users/SCI/Desktop/대표사진크롭1", extension = 'jpg')
+        new_imgs, id_img_dict = utils.resize_imgs(new_size = 256, dir = "대표사진크롭1", extension = 'jpg')
 
         # 선택한 제품에 대한 feature 노드들 생성
         for index, e in enumerate(edge_data):
