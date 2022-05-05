@@ -31,6 +31,7 @@ pages = {
         "종이": C,
         "섬유": C,
         "가죽": C,
+        path: C
     }
 
 st.sidebar.title("제품의 재질 선택하기")
