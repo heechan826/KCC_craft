@@ -13,16 +13,7 @@ def show_page(name):
 
     for i in range(8):
         st.sidebar.write("")
-
-
-
-
-
-
-
-
-        
-    intro = read_markdown("/docs/introduction.md")
+    intro = read_markdown("intro.md")
     st.markdown(intro)
 
     if st.button('이미지 다시 생성(클릭)'):
