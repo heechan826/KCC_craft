@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 400px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "C00141", "label": "C00141", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "\uc791\uc740\ucc3b\uc794\ud615", "label": "\uc791\uc740\ucc3b\uc794\ud615", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01781", "label": "C01781", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01990", "label": "C01990", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01991", "label": "C01991", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01992", "label": "C01992", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01993", "label": "C01993", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01994", "label": "C01994", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01995", "label": "C01995", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01996", "label": "C01996", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01997", "label": "C01997", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01998", "label": "C01998", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C01999", "label": "C01999", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02000", "label": "C02000", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02001", "label": "C02001", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02002", "label": "C02002", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02003", "label": "C02003", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02004", "label": "C02004", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02005", "label": "C02005", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02006", "label": "C02006", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02007", "label": "C02007", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02008", "label": "C02008", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02009", "label": "C02009", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02010", "label": "C02010", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02011", "label": "C02011", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02012", "label": "C02012", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02013", "label": "C02013", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02014", "label": "C02014", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02015", "label": "C02015", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02016", "label": "C02016", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02017", "label": "C02017", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02018", "label": "C02018", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02019", "label": "C02019", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "C02020", "label": "C02020", "shape": "dot", "size": 10}, {"font": {"color": "white"}, "id": "\uae40 \uc194", "label": "\uae40 \uc194", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "C00141", "to": "\uc791\uc740\ucc3b\uc794\ud615", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01781", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01990", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01991", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01992", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01993", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01994", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01995", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01996", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01997", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01998", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C01999", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02000", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02001", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02002", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02003", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02004", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02005", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02006", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02007", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02008", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02009", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02010", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02011", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02012", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02013", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02014", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02015", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02016", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02017", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02018", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02019", "weight": 1}, {"from": "\uc791\uc740\ucc3b\uc794\ud615", "to": "C02020", "weight": 1}, {"from": "C01990", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01991", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01992", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01993", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01994", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01995", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01996", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01997", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01998", "to": "\uae40 \uc194", "weight": 1}, {"from": "C01999", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02000", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02001", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02002", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02003", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02004", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02005", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02006", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02007", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02008", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02009", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02010", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02011", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02012", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02013", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02014", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02015", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02016", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02017", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02018", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02019", "to": "\uae40 \uc194", "weight": 1}, {"from": "C02020", "to": "\uae40 \uc194", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "repulsion": {
+            "centralGravity": 0.33,
+            "damping": 0.95,
+            "nodeDistance": 420,
+            "springConstant": 0.1,
+            "springLength": 110
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
